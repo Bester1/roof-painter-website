@@ -15,12 +15,3 @@
     exclude = [
       '**/404.html'
     ]
-
-[[plugins]]
-  package = "netlify-plugin-checklinks"
-
-  [plugins.inputs]
-    # Check external links
-    skipPatterns = [
-      "mailto:*"
-    ]
