@@ -289,6 +289,11 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Hide honeypot field */
+.hidden {
+    display: none !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
