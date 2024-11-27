@@ -60,30 +60,33 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/new-painted-roof.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/new-painted-roof.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     color: var(--white);
+    padding: 0 1rem;
+    margin-top: 0;
 }
 
 .hero-content {
     max-width: 800px;
-    margin: 0 auto;
     padding: 2rem;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 2rem;
 }
 
