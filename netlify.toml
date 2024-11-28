@@ -2,6 +2,16 @@
   publish = "./"
   command = ""
 
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+    buildDir = "./"
+    prettyURLs = true
+    trailingSlash = true
+    changeFreq = "daily"
+    priority = 1.0
+
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
@@ -12,12 +22,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-
-  [plugins.inputs]
-    buildDir = "./"
-    exclude = [
-      '**/404.html'
-    ]
