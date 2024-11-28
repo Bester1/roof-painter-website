@@ -14,6 +14,9 @@
         gtag('config', 'G-Y2QRM9PZSQ');
         gtag('config', 'AW-11398569294'); // Google Ads tracking ID
     </script>
+    
+    <!-- Form Tracking -->
+    <script src="js/form-tracking.js"></script>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Professional roof painting services in Cape Town. Expert roof cleaning, waterproofing, and painting. Transform and protect your property with our quality solutions. Get a free quote today!">
@@ -132,7 +135,7 @@
             <div class="contact-container">
                 <h2>Get Your Free Quote Today</h2>
                 <p>Transform your roof with our professional painting services</p>
-                <form name="contact" netlify class="contact-form" onsubmit="gtag('event', 'conversion', {'send_to': 'AW-11398569294/5cHACPyp9ZEYEO_Kzqsp'});">
+                <form name="contact" netlify class="contact-form" onsubmit="return handleFormSubmit(event);">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
