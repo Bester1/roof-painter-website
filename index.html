@@ -122,11 +122,22 @@
             <div class="contact-container">
                 <h2>Get Your Free Quote Today</h2>
                 <p>Transform your roof with our professional painting services</p>
-                <form name="contact" netlify>
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
-                    <textarea name="message" placeholder="Tell us about your project" required></textarea>
+                <form name="contact" netlify class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="address" placeholder="Your Address" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Tell us about your project" required></textarea>
+                    </div>
                     <button type="submit" class="submit-button">Request Free Quote</button>
                 </form>
             </div>
