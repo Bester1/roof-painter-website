@@ -12,6 +12,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-Y2QRM9PZSQ');
+        gtag('config', 'AW-11398569294'); // Google Ads tracking ID
     </script>
 
     <!-- SEO Meta Tags -->
@@ -131,7 +132,7 @@
             <div class="contact-container">
                 <h2>Get Your Free Quote Today</h2>
                 <p>Transform your roof with our professional painting services</p>
-                <form name="contact" netlify class="contact-form">
+                <form name="contact" netlify class="contact-form" onsubmit="gtag('event', 'conversion', {'send_to': 'AW-11398569294/5cHACPyp9ZEYEO_Kzqsp'});">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
