@@ -6,6 +6,29 @@ let firstContentfulPaint = 0;
 
 // Performance tracking
 if ('PerformanceObserver' in window) {
+    // Track First Input Delay (FID)
+    const fidObserver = new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+            gtag('event', 'web_vitals', {
+                'event_category': 'Performance',
+                'event_label': 'FID',
+                'value': Math.round(entry.processingStart - entry.startTime)
+            });
+        }
+    });
+    fidObserver.observe({ entryTypes: ['first-input'] });
+
+    // Track Time to First Byte (TTFB)
+    const navigationObserver = new PerformanceObserver((entryList) => {
+        const navigation = entryList.getEntries()[0];
+        gtag('event', 'web_vitals', {
+            'event_category': 'Performance',
+            'event_label': 'TTFB',
+            'value': Math.round(navigation.responseStart - navigation.requestStart)
+        });
+    });
+    navigationObserver.observe({ entryTypes: ['navigation'] });
+
     // Track First Contentful Paint (FCP)
     const paintObserver = new PerformanceObserver((entryList) => {
         for (const entry of entryList.getEntries()) {
@@ -48,6 +71,70 @@ if ('PerformanceObserver' in window) {
         });
     });
     clsObserver.observe({ entryTypes: ['layout-shift'] });
+
+    // Track Long Tasks
+    const longTaskObserver = new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+            gtag('event', 'web_vitals', {
+                'event_category': 'Performance',
+                'event_label': 'LongTask',
+                'value': Math.round(entry.duration),
+                'task_name': entry.name,
+                'task_attribution': JSON.stringify(entry.attribution)
+            });
+        }
+    });
+    longTaskObserver.observe({ entryTypes: ['longtask'] });
+
+    // Track Resource Loading Performance
+    const resourceObserver = new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+            if (entry.initiatorType === 'img' || entry.initiatorType === 'script' || entry.initiatorType === 'css') {
+                gtag('event', 'resource_timing', {
+                    'event_category': 'Performance',
+                    'event_label': entry.initiatorType,
+                    'resource_name': entry.name,
+                    'duration': Math.round(entry.duration),
+                    'transfer_size': entry.transferSize,
+                    'encoded_size': entry.encodedBodySize
+                });
+            }
+        }
+    });
+    resourceObserver.observe({ entryTypes: ['resource'] });
+}
+
+// Track Memory Usage if available
+if (window.performance && performance.memory) {
+    setInterval(() => {
+        gtag('event', 'memory_usage', {
+            'event_category': 'Performance',
+            'used_js_heap': Math.round(performance.memory.usedJSHeapSize / 1048576), // Convert to MB
+            'total_js_heap': Math.round(performance.memory.totalJSHeapSize / 1048576),
+            'heap_limit': Math.round(performance.memory.jsHeapSizeLimit / 1048576)
+        });
+    }, 30000); // Check every 30 seconds
+}
+
+// Track Network Information if available
+if ('connection' in navigator) {
+    const connection = navigator.connection;
+    
+    function sendNetworkInfo() {
+        gtag('event', 'network_info', {
+            'event_category': 'Performance',
+            'effective_type': connection.effectiveType,
+            'downlink': connection.downlink,
+            'rtt': connection.rtt,
+            'save_data': connection.saveData
+        });
+    }
+
+    // Send initial network info
+    sendNetworkInfo();
+
+    // Track network changes
+    connection.addEventListener('change', sendNetworkInfo);
 }
 
 // Error tracking
@@ -74,7 +161,19 @@ window.addEventListener('unhandledrejection', function(e) {
 });
 
 // Track page views and time on page
-document.addEventListener('DOMContentLoaded', trackPageView);
+document.addEventListener('DOMContentLoaded', () => {
+    trackPageView();
+    
+    // Track page load timing
+    window.addEventListener('load', () => {
+        const pageLoadTime = performance.now();
+        gtag('event', 'page_load_time', {
+            'event_category': 'Performance',
+            'value': Math.round(pageLoadTime),
+            'page_url': window.location.href
+        });
+    });
+});
 
 // Track time on page when user leaves
 window.addEventListener('beforeunload', () => {
@@ -99,13 +198,17 @@ function trackPageView() {
 function handleFormSubmit(event) {
     event.preventDefault();
 
+    // Record form interaction timing
+    const formInteractionTime = performance.now();
+    
     // Track both GA4 and Google Ads events
     Promise.all([
         // GA4 lead generation event
         gtag('event', 'generate_lead', {
             'form_name': 'quote_request',
             'form_destination': 'quote_submission',
-            'form_submit': 'success'
+            'form_submit': 'success',
+            'interaction_time': Math.round(formInteractionTime)
         }),
         // Google Ads conversion event
         gtag('event', 'conversion', {
