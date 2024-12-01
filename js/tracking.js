@@ -40,8 +40,8 @@ function handleFormSubmit(event) {
     });
 
     // Google Ads conversion event for form submission
-    gtag('event', 'conversion_event_submit_lead_form', {
-        'send_to': 'AW-16799370310'
+    gtag('event', 'conversion', {
+        'send_to': 'AW-16799370310/NF8BCLOQ9-8ZEMaYyMo-'
     });
 
     // Submit the form after tracking
