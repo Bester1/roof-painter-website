@@ -1,21 +1,18 @@
 // Unified tracking script for both page views and form submissions
 
-// Track page views and time on page
-document.addEventListener('DOMContentLoaded', function() {
-    // Track initial page view
-    trackPageView();
+// Initialize time tracking
+const startTime = new Date();
 
-    // Track time on page
-    let startTime = new Date();
-    window.addEventListener('beforeunload', function() {
-        let endTime = new Date();
-        let timeSpent = Math.round((endTime - startTime) / 1000);
-        
-        gtag('event', 'time_on_page', {
-            'time_seconds': timeSpent,
-            'page_title': document.title,
-            'page_location': window.location.href
-        });
+// Track page views and time on page
+document.addEventListener('DOMContentLoaded', trackPageView);
+
+// Track time on page when user leaves
+window.addEventListener('beforeunload', () => {
+    const timeSpent = Math.round((new Date() - startTime) / 1000);
+    gtag('event', 'time_on_page', {
+        'time_seconds': timeSpent,
+        'page_title': document.title,
+        'page_location': window.location.href
     });
 });
 
@@ -32,22 +29,22 @@ function trackPageView() {
 function handleFormSubmit(event) {
     event.preventDefault();
 
-    // Google Analytics 4 event - using standard event name
-    gtag('event', 'generate_lead', {
-        'form_name': 'quote_request',
-        'form_destination': 'quote_submission',
-        'form_submit': 'success'
+    // Track both GA4 and Google Ads events
+    Promise.all([
+        // GA4 lead generation event
+        gtag('event', 'generate_lead', {
+            'form_name': 'quote_request',
+            'form_destination': 'quote_submission',
+            'form_submit': 'success'
+        }),
+        // Google Ads conversion event
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16799370310/NF8BCLOQ9-8ZEMaYyMo-'
+        })
+    ]).then(() => {
+        // Submit form after tracking (small delay to ensure tracking completes)
+        setTimeout(() => event.target.submit(), 250);
     });
-
-    // Google Ads conversion event for form submission
-    gtag('event', 'conversion', {
-        'send_to': 'AW-16799370310/NF8BCLOQ9-8ZEMaYyMo-'
-    });
-
-    // Submit the form after tracking
-    setTimeout(function() {
-        event.target.submit();
-    }, 500);
 
     return false;
 }
