@@ -24,7 +24,7 @@ function trackPageView() {
     gtag('event', 'page_view', {
         'page_title': document.title,
         'page_location': window.location.href,
-        'send_to': ['G-Y2QRM9PZSQ', 'AW-11398569294']
+        'send_to': ['G-Y2QRM9PZSQ', 'AW-16799370310']
     });
 }
 
@@ -41,7 +41,7 @@ function handleFormSubmit(event) {
 
     // Google Ads conversion event for form submission
     gtag('event', 'conversion_event_submit_lead_form', {
-        'send_to': 'AW-11398569294'
+        'send_to': 'AW-16799370310'
     });
 
     // Submit the form after tracking
