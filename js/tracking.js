@@ -39,6 +39,11 @@ function handleFormSubmit(event) {
         'form_submit': 'success'
     });
 
+    // Google Ads conversion event for form submission
+    gtag('event', 'conversion_event_submit_lead_form', {
+        'send_to': 'AW-11398569294'
+    });
+
     // Submit the form after tracking
     setTimeout(function() {
         event.target.submit();
