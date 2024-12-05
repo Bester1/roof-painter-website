@@ -1,0 +1,29 @@
+{
+  "name": "roof-painter-website",
+  "version": "1.0.0",
+  "description": "Professional roofing services website for Cape Town",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bester1/roof-painter-website.git"
+  },
+  "keywords": [
+    "roofing",
+    "cape-town",
+    "services"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bester1/roof-painter-website/issues"
+  },
+  "homepage": "https://github.com/Bester1/roof-painter-website#readme",
+  "devDependencies": {
+    "@netlify/plugin-sitemap": "0.8.1",
+    "netlify-plugin-cache": "1.0.3",
+    "netlify-plugin-minify-html": "0.3.1"
+  }
+}
