@@ -9,6 +9,18 @@
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="../styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" as="style">
+    
+    <!-- Styles with media queries -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2QRM9PZSQ"></script>
@@ -20,14 +32,6 @@
         gtag('config', 'G-Y2QRM9PZSQ');
         gtag('config', 'AW-16799370310');
     </script>
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Unified Tracking -->
-    <script defer src="../js/tracking.js"></script>
 </head>
 <body>
     <header class="header">
@@ -100,25 +104,25 @@
                 <h2>Our Recent Cleaning Projects</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="../images/cleaning-1.jpg" alt="Roof Cleaning Project 1">
+                        <img src="../images/cleaning-1.jpg" alt="Roof Cleaning Project 1" loading="lazy" width="800" height="600">
                         <div class="gallery-overlay">
                             <p>Before and After Cleaning</p>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="../images/cleaning-2.jpg" alt="Roof Cleaning Project 2">
+                        <img src="../images/cleaning-2.jpg" alt="Roof Cleaning Project 2" loading="lazy" width="800" height="600">
                         <div class="gallery-overlay">
                             <p>Moss Removal Project</p>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="../images/cleaning-3.jpg" alt="Roof Cleaning Project 3">
+                        <img src="../images/cleaning-3.jpg" alt="Roof Cleaning Project 3" loading="lazy" width="800" height="600">
                         <div class="gallery-overlay">
                             <p>Commercial Roof Cleaning</p>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="../images/cleaning-4.jpg" alt="Roof Cleaning Project 4">
+                        <img src="../images/cleaning-4.jpg" alt="Roof Cleaning Project 4" loading="lazy" width="800" height="600">
                         <div class="gallery-overlay">
                             <p>Residential Roof Cleaning</p>
                         </div>
@@ -205,5 +209,7 @@
             <p>&copy; 2024 RoofMasters. All rights reserved.</p>
         </div>
     </footer>
+    <!-- Defer non-critical JavaScript -->
+    <script defer src="../js/tracking.js"></script>
 </body>
 </html>
