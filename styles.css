@@ -213,7 +213,9 @@ body {
 }
 
 .waterproofing-hero {
-    background-image: url('../images/roof-waterproofing-hero.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/waterproofing.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 60vh;
 }
 
 /* Service Page Hero Sections */
@@ -230,7 +232,7 @@ body {
 }
 
 .waterproofing-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/roof-waterproofing.jpg') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/waterproofing.jpg') no-repeat center center;
     background-size: cover;
     min-height: 60vh;
 }
