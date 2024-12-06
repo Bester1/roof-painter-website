@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Professional Roof Services Cape Town | RoofMasters</title>
-    <meta name="description" content="Get in touch for professional roof painting, cleaning, and waterproofing services in Cape Town. Free quotes available. Expert solutions for your roofing needs.">
+    <title>Contact Us | RoofMasters Cape Town</title>
+    <meta name="description" content="Get in touch with RoofMasters for professional roof services in Cape Town. Request a free quote for roof painting, cleaning, and waterproofing.">
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
     
-    <!-- Google tag (gtag.js) - Analytics and Ads -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2QRM9PZSQ"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16799370310"></script>
     <script>
@@ -21,9 +21,13 @@
         gtag('config', 'AW-16799370310');
     </script>
     
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Unified Tracking -->
     <script defer src="js/tracking.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header class="header">
@@ -41,10 +45,10 @@
     </header>
 
     <main>
-        <section class="contact-hero">
-            <div class="contact-hero-content">
-                <h1>Contact Us</h1>
-                <p>Get in touch for professional roof services in Cape Town</p>
+        <section class="hero contact-hero">
+            <div class="hero-content">
+                <h1>Contact RoofMasters</h1>
+                <p>Get your free quote today and transform your roof</p>
             </div>
         </section>
 
@@ -53,113 +57,62 @@
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h2>Get In Touch</h2>
-                        <div class="info-item">
-                            <h3>Email</h3>
-                            <p><a href="mailto:roofpainterscapetown@gmail.com">roofpainterscapetown@gmail.com</a></p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <p>roofpainterscapetown@gmail.com</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Cape Town, South Africa</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <p>Mon - Sat: 8:00 AM - 6:00 PM</p>
+                            </div>
                         </div>
-                        <div class="info-item">
+                        <div class="service-areas">
                             <h3>Service Areas</h3>
-                            <p>Cape Town and surrounding areas</p>
-                        </div>
-                        <div class="info-item">
-                            <h3>Working Hours</h3>
-                            <p>Monday - Friday: 7:00 AM - 5:00 PM<br>
-                            Saturday: 8:00 AM - 2:00 PM<br>
-                            Sunday: Closed</p>
-                        </div>
-                        <div class="info-item">
-                            <h3>Our Services</h3>
+                            <p>We serve all areas in and around Cape Town, including:</p>
                             <ul>
-                                <li>Roof Painting</li>
-                                <li>Roof Cleaning</li>
-                                <li>Roof Waterproofing</li>
-                                <li>Free Inspections</li>
-                                <li>Free Quotes</li>
+                                <li>Camps Bay</li>
+                                <li>Sea Point</li>
+                                <li>Green Point</li>
+                                <li>Constantia</li>
+                                <li>Claremont</li>
+                                <li>Newlands</li>
+                                <li>And surrounding areas</li>
                             </ul>
                         </div>
                     </div>
-
-                    <div class="contact-form">
-                        <h2>Request a Free Quote</h2>
-                        <form name="contact" method="POST" data-netlify="true" onsubmit="return handleFormSubmit(event)">
+                    <div class="contact-form-container">
+                        <h2>Request A Free Quote</h2>
+                        <form name="contact" netlify class="contact-form" onsubmit="return handleFormSubmit(event);">
                             <div class="form-group">
-                                <label for="name">Name *</label>
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" name="email" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <input type="tel" name="phone" placeholder="Phone Number" required>
                             </div>
                             <div class="form-group">
-                                <label for="service">Service Required *</label>
-                                <select id="service" name="service" required>
-                                    <option value="">Select a Service</option>
-                                    <option value="Roof Painting">Roof Painting</option>
-                                    <option value="Roof Cleaning">Roof Cleaning</option>
-                                    <option value="Roof Waterproofing">Roof Waterproofing</option>
-                                    <option value="Multiple Services">Multiple Services</option>
+                                <input type="text" name="address" placeholder="Your Address" required>
+                            </div>
+                            <div class="form-group">
+                                <select name="service" required>
+                                    <option value="">Select Service</option>
+                                    <option value="roof-painting">Roof Painting</option>
+                                    <option value="roof-cleaning">Roof Cleaning</option>
+                                    <option value="waterproofing">Waterproofing</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="location">Location *</label>
-                                <input type="text" id="location" name="location" placeholder="Your area in Cape Town" required>
+                                <textarea name="message" placeholder="Tell us about your project" required></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="submit-button">Send Message</button>
-                            </div>
+                            <button type="submit" class="submit-button">Request Free Quote</button>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="service-areas">
-            <div class="container">
-                <h2>Areas We Serve in Cape Town</h2>
-                <div class="areas-grid">
-                    <div class="area">
-                        <h3>Northern Suburbs</h3>
-                        <ul>
-                            <li>Durbanville</li>
-                            <li>Bellville</li>
-                            <li>Brackenfell</li>
-                            <li>Kraaifontein</li>
-                        </ul>
-                    </div>
-                    <div class="area">
-                        <h3>Southern Suburbs</h3>
-                        <ul>
-                            <li>Claremont</li>
-                            <li>Kenilworth</li>
-                            <li>Newlands</li>
-                            <li>Rondebosch</li>
-                        </ul>
-                    </div>
-                    <div class="area">
-                        <h3>Atlantic Seaboard</h3>
-                        <ul>
-                            <li>Sea Point</li>
-                            <li>Camps Bay</li>
-                            <li>Clifton</li>
-                            <li>Hout Bay</li>
-                        </ul>
-                    </div>
-                    <div class="area">
-                        <h3>City Bowl</h3>
-                        <ul>
-                            <li>Gardens</li>
-                            <li>Oranjezicht</li>
-                            <li>Tamboerskloof</li>
-                            <li>Woodstock</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -185,5 +138,7 @@
             <p>&copy; 2024 RoofMasters. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
