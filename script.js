@@ -107,13 +107,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Header shrink on scroll for mobile
-        const header = document.querySelector('.header');
+    const header = document.querySelector('.header');
+    const adjustBodyPadding = () => {
+        document.body.style.paddingTop = header.offsetHeight + 'px';
+    };
+
+    // Initial adjustment
+    adjustBodyPadding();
+
+    // Adjust on window resize
+    window.addEventListener('resize', adjustBodyPadding);
+
+    window.addEventListener('scroll', function() {
+        const winHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight - winHeight;
+        const scrollPos = window.scrollY;
+        const scrollPercent = (scrollPos / docHeight) * 100;
+
+        Object.keys(scrollDepthTracked).forEach(function(depth) {
+            if (!scrollDepthTracked[depth] && scrollPercent >= depth) {
+                scrollDepthTracked[depth] = true;
+                trackEvent('Scroll', 'Scroll Depth', depth + '%');
+            }
+        });
+
         if (window.innerWidth <= 768) { // Apply only on mobile
             if (scrollPos > 50) { // Adjust this value as needed
-                header.classList.add('header-shrink');
+                if (!header.classList.contains('header-shrink')) {
+                    header.classList.add('header-shrink');
+                    adjustBodyPadding(); // Re-adjust padding after shrink
+                }
             } else {
-                header.classList.remove('header-shrink');
+                if (header.classList.contains('header-shrink')) {
+                    header.classList.remove('header-shrink');
+                    adjustBodyPadding(); // Re-adjust padding after un-shrink
+                }
             }
         }
     });
+});
 });

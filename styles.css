@@ -33,6 +33,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
+    transition: padding 0.3s ease-in-out;
 }
 
 .nav-container {
@@ -43,6 +44,96 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    transition: padding 0.3s ease-in-out;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    transition: gap 0.3s ease-in-out;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, font-size 0.3s ease-in-out;
+}
+
+.nav-cta {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, padding 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 0.25rem;
+        gap: 0.25rem;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+        padding: 0.25rem 0;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0;
+        font-size: 0.8rem; /* Slightly smaller font size */
+    }
+
+    .nav-cta {
+        width: auto;
+        margin: 0.25rem auto;
+        display: inline-block;
+    }
+
+    /* Optimize touch targets for mobile */
+    .nav-links a,
+    .nav-cta {
+        padding: 0.3rem 0.5rem;
+    }
+
+    /* Header shrink on scroll */
+    .header.header-shrink .nav-container {
+        padding: 0.2rem; /* Smaller padding for nav-container */
+    }
+
+    .header.header-shrink .logo {
+        font-size: 1.0rem; /* Smaller logo */
+    }
+
+    .header.header-shrink .nav-links {
+        gap: 0.3rem; /* Smaller gap for nav links */
+    }
+
+    .header.header-shrink .nav-links a,
+    .header.header-shrink .nav-cta {
+        font-size: 0.6rem; /* Smaller nav links and CTA */
+        padding: 0.15rem 0.3rem;
+    }
 }
 
 .logo {
@@ -186,7 +277,6 @@ body {
     justify-content: center;
     text-align: center;
     color: var(--white);
-    margin-top: 60px;
 }
 
 .hero::before {
