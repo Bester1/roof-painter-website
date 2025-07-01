@@ -105,5 +105,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 trackEvent('Scroll', 'Scroll Depth', depth + '%');
             }
         });
+
+        // Header shrink on scroll for mobile
+        const header = document.querySelector('.header');
+        if (window.innerWidth <= 768) { // Apply only on mobile
+            if (scrollPos > 50) { // Adjust this value as needed
+                header.classList.add('header-shrink');
+            } else {
+                header.classList.remove('header-shrink');
+            }
+        }
     });
 });

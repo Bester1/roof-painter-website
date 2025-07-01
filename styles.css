@@ -125,6 +125,21 @@ body {
     .nav-cta {
         padding: 0.3rem 0.5rem;
     }
+
+    /* Header shrink on scroll */
+    .header.header-shrink {
+        padding: 0.5rem 0; /* Smaller padding */
+    }
+
+    .header.header-shrink .logo {
+        font-size: 1.2rem; /* Smaller logo */
+    }
+
+    .header.header-shrink .nav-links a,
+    .header.header-shrink .nav-cta {
+        font-size: 0.7rem; /* Smaller nav links and CTA */
+        padding: 0.2rem 0.4rem;
+    }
 }
 
 /* Hero Section */
