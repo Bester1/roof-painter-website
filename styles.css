@@ -102,45 +102,62 @@ body {
     }
 
     .nav-menu {
-        display: none; /* Hide menu by default */
+        display: flex; /* Changed to flex for vertical alignment */
         flex-direction: column;
-        position: absolute;
-        top: 100%; /* Position below header */
+        position: fixed; /* Changed to fixed for full screen */
+        top: 0;
         left: 0;
         width: 100%;
-        background: var(--white);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        padding: 1rem 0;
-        z-index: 999;
+        height: 100%; /* Full height */
+        background: var(--primary-color); /* Darker background for overlay */
+        justify-content: center; /* Center items vertically */
+        align-items: center; /* Center items horizontally */
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+        z-index: 9999; /* Ensure it's on top */
     }
 
     .nav-menu.active {
-        display: flex; /* Show menu when active */
+        transform: translateX(0); /* Slide in */
     }
 
     .nav-links {
         flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.5rem 0;
-        font-size: 1rem;
+        gap: 1.5rem; /* Increased gap for better touch targets */
+        font-size: 1.5rem; /* Larger font size for readability */
     }
 
     .nav-links a,
     .nav-cta {
-        padding: 0.5rem 1rem;
+        padding: 0.8rem 1.5rem;
         text-align: center;
         width: 100%;
+        color: var(--white); /* White text for dark background */
     }
 
     .nav-cta {
-        margin-top: 1rem;
+        margin-top: 2rem; /* More spacing for CTA */
+        background: var(--accent-color); /* Different color for CTA */
+        color: var(--text-color); /* Text color for CTA */
     }
 
     .hamburger-menu {
         display: block; /* Show hamburger icon */
+        position: relative; /* Keep it in flow */
+        z-index: 10000; /* Ensure it's above the overlay */
     }
 
-    /* Header shrink on scroll */
+    /* Close button for overlay menu */
+    .nav-menu .close-menu {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        color: var(--white);
+        cursor: pointer;
+    }
+
+    /* Header shrink on scroll - keep these for the main header */
     .header.header-shrink .nav-container {
         padding: 0.3rem 1rem; /* Smaller padding for nav-container */
     }
@@ -557,51 +574,6 @@ body {
     }
 }
 
-/* Responsive Navigation */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        padding: 0.5rem;
-        gap: 0.5rem;
-    }
-
-    .logo {
-        width: 100%;
-        text-align: center;
-        padding: 0.5rem 0;
-    }
-
-    .nav-links {
-        width: 100%;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
-        padding: 0.5rem 0;
-        font-size: 0.9rem;
-    }
-
-    .nav-cta {
-        width: auto;
-        margin: 0.5rem auto;
-        display: inline-block;
-    }
-
-    /* Optimize touch targets for mobile */
-    .nav-links a,
-    .nav-cta {
-        padding: 0.5rem 0.75rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-links {
-        align-items: center;
-    }
-}
-
 /* Service Hero Section */
 .service-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-bg.jpg');
@@ -646,12 +618,6 @@ body {
 .service-info ul {
     list-style: none;
     padding: 0;
-}
-
-.service-info ul li {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
 }
 
 .service-info ul li::before {
@@ -715,13 +681,6 @@ body {
     list-style: none;
     counter-reset: service-counter;
     padding: 0;
-}
-
-.service-info ol li {
-    counter-increment: service-counter;
-    margin-bottom: 2rem;
-    padding-left: 3rem;
-    position: relative;
 }
 
 .service-info ol li::before {
@@ -952,16 +911,6 @@ body {
     }
 }
 
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero {
@@ -1018,10 +967,6 @@ body {
 }
 
 .contact-details {
-    margin-bottom: 2rem;
-}
-
-.contact-item {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
