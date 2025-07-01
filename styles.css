@@ -99,40 +99,40 @@ body {
         width: 100%;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.5rem;
-        padding: 0.25rem 0;
-        font-size: 0.8rem; /* Slightly smaller font size */
+        gap: 0.2rem; /* Further reduced gap */
+        padding: 0.1rem 0; /* Further reduced padding */
+        font-size: 0.7rem; /* Slightly smaller font size */
     }
 
     .nav-cta {
         width: auto;
-        margin: 0.25rem auto;
+        margin: 0.1rem auto; /* Further reduced margin */
         display: inline-block;
     }
 
     /* Optimize touch targets for mobile */
     .nav-links a,
     .nav-cta {
-        padding: 0.3rem 0.5rem;
+        padding: 0.15rem 0.25rem; /* Further reduced padding */
     }
 
     /* Header shrink on scroll */
     .header.header-shrink .nav-container {
-        padding: 0.2rem; /* Smaller padding for nav-container */
+        padding: 0.1rem; /* Even smaller padding for nav-container */
     }
 
     .header.header-shrink .logo {
-        font-size: 1.0rem; /* Smaller logo */
+        font-size: 0.9rem; /* Even smaller logo */
     }
 
     .header.header-shrink .nav-links {
-        gap: 0.3rem; /* Smaller gap for nav links */
+        gap: 0.1rem; /* Even smaller gap for nav links */
     }
 
     .header.header-shrink .nav-links a,
     .header.header-shrink .nav-cta {
-        font-size: 0.6rem; /* Smaller nav links and CTA */
-        padding: 0.15rem 0.3rem;
+        font-size: 0.5rem; /* Even smaller nav links and CTA */
+        padding: 0.1rem 0.2rem;
     }
 }
 
