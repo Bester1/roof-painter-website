@@ -106,7 +106,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Header shrink on scroll for mobile
+        // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Close menu when a link is clicked (for single-page navigation)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // Header shrink on scroll for mobile
     const header = document.querySelector('.header');
     const adjustBodyPadding = () => {
         document.body.style.paddingTop = header.offsetHeight + 'px';
