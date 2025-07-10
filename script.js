@@ -36,6 +36,17 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     };
 
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => data[key] = value);
+        alert('Thank you for your inquiry! We will contact you shortly.');
+        form.reset();
+        return false;
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -138,6 +149,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const adjustBodyPadding = () => {
         document.body.style.paddingTop = header.offsetHeight + 'px';
     };
+
+    // Set current year in footer
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = currentYear;
+    }
 
     // Initial adjustment
     adjustBodyPadding();
