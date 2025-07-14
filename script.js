@@ -138,8 +138,18 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileOverlay.addEventListener('click', closeMobileMenu);
     }
 
-    // Close menu when mobile nav link is clicked
-    navLinks.forEach(link => {
+    // Handle dropdown toggle
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdown = document.querySelector('.dropdown');
+    
+    if (dropdownBtn) {
+        dropdownBtn.addEventListener('click', () => {
+            dropdown.classList.toggle('active');
+        });
+    }
+    
+    // Close menu when dropdown links are clicked
+    document.querySelectorAll('.dropdown-content a').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
 

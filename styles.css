@@ -170,6 +170,76 @@ body {
     padding-left: 1rem;
 }
 
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-btn:hover {
+    color: var(--primary-color);
+    padding-left: 1rem;
+}
+
+.dropdown-btn i {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.dropdown.active .dropdown-btn i {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f9f9f9;
+    margin-left: 1rem;
+}
+
+.dropdown.active .dropdown-content {
+    max-height: 200px;
+}
+
+.dropdown-content a {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover,
+.dropdown-content a.active {
+    color: var(--primary-color);
+    background: #f0f0f0;
+    padding-left: 1.5rem;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
 /* Mobile overlay */
 .mobile-overlay {
     position: fixed;
