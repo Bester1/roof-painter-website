@@ -54,25 +54,29 @@ body {
 
 /* Logo - Left */
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    transition: font-size 0.3s ease;
     flex: 0 0 auto;
-}
-
-.header.scrolled .logo {
-    font-size: 1.5rem;
+    transition: all 0.3s ease;
 }
 
 .logo a {
     text-decoration: none;
-    color: var(--primary-color);
     display: block;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.logo a:hover {
-    color: var(--secondary-color);
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled .logo img {
+    height: 40px;
+}
+
+.logo a:hover img {
+    opacity: 0.8;
 }
 
 /* Get Free Quote - Center */
@@ -291,12 +295,12 @@ body {
         padding: 0.5rem 0;
     }
     
-    .logo {
-        font-size: 1.5rem;
+    .logo img {
+        height: 40px;
     }
     
-    .header.scrolled .logo {
-        font-size: 1.3rem;
+    .header.scrolled .logo img {
+        height: 35px;
     }
 }
 
