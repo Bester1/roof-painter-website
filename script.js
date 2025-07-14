@@ -61,40 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
         element => observer.observe(element)
     );
 
-    // Google Analytics Event Tracking
-    function trackEvent(category, action, label) {
-        gtag('event', action, {
-            'event_category': category,
-            'event_label': label
-        });
-    }
-
-    // Form submission tracking
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        trackEvent('Contact', 'Form Submit', 'Quote Request');
-    });
-
-    // Phone number click tracking
-    document.querySelectorAll('a[href^="tel:"]').forEach(function(elem) {
-        elem.addEventListener('click', function() {
-            trackEvent('Contact', 'Phone Click', this.href.replace('tel:', ''));
-        });
-    });
-
-    // Service card click tracking
-    document.querySelectorAll('.service-card').forEach(function(card) {
-        card.addEventListener('click', function() {
-            const serviceName = this.querySelector('h3').textContent;
-            trackEvent('Services', 'View Service', serviceName);
-        });
-    });
-
-    // CTA button click tracking
-    document.querySelectorAll('.cta-button, .nav-cta, .submit-button').forEach(function(button) {
-        button.addEventListener('click', function() {
-            trackEvent('CTA', 'Click', this.textContent.trim());
-        });
-    });
+    // All analytics tracking is now handled in tracking.js
+    // This prevents duplicate tracking and reduces errors
 
     // Scroll depth tracking
     let scrollDepthTracked = {

@@ -1,19 +1,34 @@
 // Unified Tracking Script for Google Analytics 4 and Google Ads
 
-// Initialize dataLayer
+// Initialize dataLayer and gtag with error handling
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
 
-// Configure Google Analytics and Google Ads
-gtag('config', 'G-Y2QRM9PZSQ');
-gtag('config', 'AW-16799370310');
+// Safe gtag wrapper that handles blocked analytics
+function safeGtag() {
+    if (typeof gtag === 'function') {
+        try {
+            gtag.apply(this, arguments);
+        } catch (e) {
+            console.warn('Analytics blocked or failed:', e);
+        }
+    }
+}
+
+// Initialize analytics if available
+try {
+    gtag('js', new Date());
+    gtag('config', 'G-Y2QRM9PZSQ');
+    gtag('config', 'AW-16799370310');
+} catch (e) {
+    console.warn('Analytics initialization failed:', e);
+}
 
 // --- Core Web Vitals and Performance Tracking ---
 
 // Function to send web vitals data
 function sendWebVitals(metric) {
-    gtag('event', 'web_vitals', {
+    safeGtag('event', 'web_vitals', {
         'event_category': 'Performance',
         'event_label': metric.name,
         'value': Math.round(metric.value),
@@ -41,7 +56,7 @@ if (performance && performance.getEntriesByType) {
 // --- Event Tracking ---
 
 // Track page views
-gtag('event', 'page_view', {
+safeGtag('event', 'page_view', {
     'page_title': document.title,
     'page_location': window.location.href,
     'send_to': ['G-Y2QRM9PZSQ', 'AW-16799370310']
@@ -52,10 +67,10 @@ function handleFormSubmit(event) {
     event.preventDefault();
     
     // Google Ads Conversion
-    gtag('event', 'conversion', {'send_to': 'AW-16799370310/NF8BCLOQ9-8ZEMaYyMo-'});
+    safeGtag('event', 'conversion', {'send_to': 'AW-16799370310/NF8BCLOQ9-8ZEMaYyMo-'});
 
     // GA4 Lead Generation Event
-    gtag('event', 'generate_lead', {
+    safeGtag('event', 'generate_lead', {
         'form_name': 'quote_request',
         'form_destination': 'quote_submission'
     });
@@ -71,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
     phoneLinks.forEach(link => {
         link.addEventListener('click', () => {
-            gtag('event', 'phone_click', {
+            safeGtag('event', 'phone_click', {
                 'event_category': 'Contact',
                 'event_label': link.href
             });
@@ -84,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const ctaButtons = document.querySelectorAll('.cta-button, .nav-cta, .submit-button');
     ctaButtons.forEach(button => {
         button.addEventListener('click', () => {
-            gtag('event', 'cta_click', {
+            safeGtag('event', 'cta_click', {
                 'event_category': 'CTA',
                 'event_label': button.textContent.trim()
             });
