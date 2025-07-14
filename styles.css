@@ -56,6 +56,8 @@ body {
 .logo {
     flex: 0 0 auto;
     transition: all 0.3s ease;
+    max-width: 200px;
+    overflow: hidden;
 }
 
 .logo a {
@@ -65,15 +67,18 @@ body {
 }
 
 .logo img {
-    height: 35px;
-    width: auto;
-    max-width: 150px;
+    height: 35px !important;
+    width: auto !important;
+    max-width: 150px !important;
+    max-height: 35px !important;
     display: block;
     transition: all 0.3s ease;
+    object-fit: contain;
 }
 
 .header.scrolled .logo img {
-    height: 30px;
+    height: 30px !important;
+    max-height: 30px !important;
 }
 
 .logo a:hover img {
@@ -297,12 +302,14 @@ body {
     }
     
     .logo img {
-        height: 30px;
-        max-width: 120px;
+        height: 30px !important;
+        max-width: 120px !important;
+        max-height: 30px !important;
     }
     
     .header.scrolled .logo img {
-        height: 25px;
+        height: 25px !important;
+        max-height: 25px !important;
     }
 }
 
