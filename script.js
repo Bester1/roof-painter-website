@@ -123,25 +123,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector('.nav-menu');
     const closeMenu = document.querySelector('.close-menu');
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.add('active');
-        });
+    function toggleMenu() {
+        if (navMenu) {
+            navMenu.classList.toggle('active');
+        }
     }
 
-    if (closeMenu && navMenu) {
-        closeMenu.addEventListener('click', () => {
+    function closeMenuHandler() {
+        if (navMenu) {
             navMenu.classList.remove('active');
+        }
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
         });
     }
 
-    // Close menu when a link is clicked (for single-page navigation)
+    if (closeMenu) {
+        closeMenu.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMenuHandler();
+        });
+    }
+
+    // Close menu when a link is clicked
     document.querySelectorAll('.nav-menu .nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
+            closeMenuHandler();
         });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navMenu && navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            closeMenuHandler();
+        }
     });
 
     // Header shrink on scroll for mobile

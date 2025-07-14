@@ -50,11 +50,20 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    text-decoration: none;
-    color: var(--primary-color);
     margin: 0;
     padding: 0;
     transition: font-size 0.3s ease-in-out;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--primary-color);
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: var(--secondary-color);
 }
 
 .nav-links {
@@ -99,6 +108,8 @@ body {
         flex-wrap: nowrap; /* Prevent wrapping in mobile header */
         justify-content: space-between; /* Space out logo and hamburger */
         padding: 0.5rem 1rem; /* Adjust padding for mobile header */
+        width: 100%;
+        max-width: 100%;
     }
 
     .nav-menu {
@@ -559,18 +570,52 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
     .hero h1 {
         font-size: 2rem;
+        padding: 0 1rem;
+        word-wrap: break-word;
     }
     
     .hero p {
         font-size: 1rem;
+        padding: 0 1rem;
     }
     
     .benefits-grid,
     .services-grid,
     .testimonials-grid {
         grid-template-columns: 1fr;
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+    
+    .benefit-card,
+    .service-card,
+    .testimonial-card {
+        margin: 0 1rem;
+        word-wrap: break-word;
+    }
+    
+    .contact-form {
+        margin: 0 1rem;
+        padding: 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+        text-align: center;
     }
 }
 
@@ -914,22 +959,45 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero {
-        height: 400px;
-        margin-top: 120px;
+        height: 60vh;
+        min-height: 400px;
+        margin-top: 70px;
+        padding: 0;
+    }
+
+    .hero-content {
+        padding: 1rem;
+        max-width: 100%;
     }
 
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        word-wrap: break-word;
     }
 
     .hero-content p {
         font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
     }
 
     .benefits-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        padding: 0 1rem;
+        padding: 0;
+        margin: 0 1rem;
+    }
+    
+    .benefits,
+    .services,
+    .testimonials {
+        padding: 3rem 1rem;
+    }
+    
+    .contact {
+        padding: 3rem 1rem;
     }
 }
 
