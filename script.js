@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
 
-    // Event listeners
+    // Event listeners - work on all screen sizes
     if (hamburger) {
         hamburger.addEventListener('click', () => {
             if (navMenu.classList.contains('active')) {
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileOverlay.addEventListener('click', closeMobileMenu);
     }
 
-    // Handle dropdown toggle
+    // Handle dropdown toggle - work on all screen sizes
     const dropdownBtn = document.querySelector('.dropdown-btn');
     const dropdown = document.querySelector('.dropdown');
     
@@ -182,9 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle window resize
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-            closeMobileMenu();
-        }
         adjustBodyPadding();
     });
 

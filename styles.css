@@ -135,11 +135,9 @@ body {
     display: block !important;
 }
 
-/* Hide on desktop */
-@media (min-width: 769px) {
-    .nav-menu {
-        display: none !important;
-    }
+/* Show mobile menu on all screen sizes */
+.nav-menu {
+    display: block !important;
 }
 
 /* Ensure no select elements show in mobile menu */
