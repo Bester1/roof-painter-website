@@ -54,35 +54,25 @@ body {
 
 /* Logo - Left */
 .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: font-size 0.3s ease;
     flex: 0 0 auto;
-    transition: all 0.3s ease;
-    max-width: 200px;
-    overflow: hidden;
+}
+
+.header.scrolled .logo {
+    font-size: 1.5rem;
 }
 
 .logo a {
     text-decoration: none;
+    color: var(--primary-color);
     display: block;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.logo img {
-    height: 35px !important;
-    width: auto !important;
-    max-width: 150px !important;
-    max-height: 35px !important;
-    display: block;
-    transition: all 0.3s ease;
-    object-fit: contain;
-}
-
-.header.scrolled .logo img {
-    height: 30px !important;
-    max-height: 30px !important;
-}
-
-.logo a:hover img {
-    opacity: 0.8;
+.logo a:hover {
+    color: var(--secondary-color);
 }
 
 /* Get Free Quote - Center */
@@ -301,15 +291,12 @@ body {
         padding: 0.5rem 0;
     }
     
-    .logo img {
-        height: 30px !important;
-        max-width: 120px !important;
-        max-height: 30px !important;
+    .logo {
+        font-size: 1.5rem;
     }
     
-    .header.scrolled .logo img {
-        height: 25px !important;
-        max-height: 25px !important;
+    .header.scrolled .logo {
+        font-size: 1.3rem;
     }
 }
 
