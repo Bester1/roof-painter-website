@@ -65,15 +65,15 @@ body {
 }
 
 .logo img {
-    height: 60px;
+    height: 75px;
     width: auto;
-    max-width: 270px;
+    max-width: 320px;
     display: block;
     transition: all 0.3s ease;
 }
 
 .header.scrolled .logo img {
-    height: 52px;
+    height: 65px;
 }
 
 .logo a:hover img {
@@ -297,12 +297,12 @@ body {
     }
     
     .logo img {
-        height: 52px;
-        max-width: 225px;
+        height: 65px;
+        max-width: 280px;
     }
     
     .header.scrolled .logo img {
-        height: 45px;
+        height: 55px;
     }
 }
 
