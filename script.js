@@ -142,8 +142,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const dropdownBtn = document.querySelector('.dropdown-btn');
     const dropdown = document.querySelector('.dropdown');
     
-    if (dropdownBtn) {
-        dropdownBtn.addEventListener('click', () => {
+    if (dropdownBtn && dropdown) {
+        dropdownBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             dropdown.classList.toggle('active');
         });
     }
