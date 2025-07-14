@@ -170,19 +170,19 @@
                 <p>Transform your roof with our professional painting services</p>
                 <form name="contact" netlify class="contact-form" onsubmit="return handleFormSubmit(event);">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="Your Email" autocomplete="email" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="address" placeholder="Your Address" required>
+                        <input type="text" name="address" placeholder="Your Address" autocomplete="street-address" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="Tell us about your project" required></textarea>
+                        <textarea name="message" placeholder="Tell us about your project" autocomplete="off" required></textarea>
                     </div>
                     <button type="submit" class="submit-button">Request Free Quote</button>
                 </form>
