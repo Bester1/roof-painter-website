@@ -55,6 +55,18 @@ if (performance && performance.getEntriesByType) {
 
 // --- Event Tracking ---
 
+// Global trackEvent function for use across the site
+function trackEvent(eventAction, eventCategory, eventLabel, eventValue) {
+    safeGtag('event', eventAction, {
+        'event_category': eventCategory || 'General',
+        'event_label': eventLabel || '',
+        'value': eventValue || 0
+    });
+}
+
+// Make trackEvent available globally
+window.trackEvent = trackEvent;
+
 // Track page views
 safeGtag('event', 'page_view', {
     'page_title': document.title,
